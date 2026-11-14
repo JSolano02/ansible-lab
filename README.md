@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Automatizar tareas en dos servidores Ubuntu 24.04 ejecutados como contenedores Docker. Mediante Ansible se obtiene el nombre de cada servidor y su sistema operativo, se crea `/tmp/ansible-demo` y un archivo `info.txt`, se generan los directorios `logs`, `backup` y `config` con un *loop*, y se muestra un mensaje condicionado a que el sistema sea Ubuntu.
+Automatizar tareas en dos servidores Ubuntu 24.04 ejecutados como contenedores Docker. Mediante Ansible se obtiene el nombre de cada servidor y su sistema operativo, se crea `/tmp/ansible-demo` y un archivo `info.txt`, se generan los directorios `logs`, `backup` y `config` con un *loop*, y se muestra un mensaje condicionado a que el sistema sea Ubuntu. 
 
 ## Archivos entregados
 
