@@ -1,0 +1,29 @@
+# Practica: dos servidores Ubuntu y un controlador auxiliar con Ansible.
+# El controlador permite trabajar desde Windows sin instalar Ubuntu en WSL.
+services:
+  server1:
+    image: ubuntu:24.04
+    container_name: server1
+    command: sleep infinity
+
+  server2:
+    image: ubuntu:24.04
+    container_name: server2
+    command: sleep infinity
+
+  controlador:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM docker:29-cli
+        RUN apk add --no-cache ansible
+        WORKDIR /lab
+    working_dir: /lab
+    command: ["sh", "-c", "while true; do sleep 3600; done"]
+    volumes:
+      - ./:/lab:ro
+      # Uso exclusivo para este laboratorio local: acceso al motor Docker.
+      - /var/run/docker.sock:/var/run/docker.sock
+    depends_on:
+      - server1
+      - server2
